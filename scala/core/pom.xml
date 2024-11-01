@@ -9,14 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>producer-simple</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.github.alopatin.kafka-learning</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
+    <artifactId>core</artifactId>
 
 </project>

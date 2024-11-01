@@ -9,6 +9,9 @@
     <version>1.0</version>
     <modules>
         <module>producer-simple</module>
+        <module>producer-sync</module>
+        <module>producer-async</module>
+        <module>core</module>
     </modules>
 
     <properties>
