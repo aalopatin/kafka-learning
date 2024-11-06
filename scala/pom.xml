@@ -13,6 +13,7 @@
         <module>producer-sync</module>
         <module>producer-async</module>
         <module>producer-too-large</module>
+        <module>producer-custom-serializer</module>
     </modules>
 
     <properties>
@@ -22,7 +23,6 @@
         <scala.version.manor>13</scala.version.manor>
         <scala.version.patch>12</scala.version.patch>
         <scala.version>${scala.version.major}.${scala.version.manor}.${scala.version.patch}</scala.version>
-        <packageName/>
     </properties>
 
     <packaging>pom</packaging>

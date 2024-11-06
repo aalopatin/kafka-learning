@@ -1,4 +1,4 @@
-package com.github.alopatin.kafka_learning.core
+package com.github.alopatin.kafka_learning.core.callbacks
 
 import org.apache.kafka.clients.producer.{Callback, RecordMetadata}
 
