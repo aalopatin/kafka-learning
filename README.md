@@ -1,11 +1,16 @@
-### Console commands
+# Console commands
 
-Create topic
+##### Create topic
 ```shell
-kafka-topics.bat --bootstrap-server 192.168.0.100:9092 --create --topic temperature
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic temperature
 ```
 
-Delete topic
+##### Delete topic
 ```shell
-kafka-topics.bat --bootstrap-server 192.168.0.100:9092 --delete --topic temperature
+kafka-topics.bat --bootstrap-server localhost:9092 --delete --topic temperature
+```
+
+##### Create topic with config
+```shell
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic short-messages --config max.message.bytes=100
 ```

@@ -8,10 +8,11 @@
     <artifactId>scala</artifactId>
     <version>1.0</version>
     <modules>
+        <module>core</module>
         <module>producer-simple</module>
         <module>producer-sync</module>
         <module>producer-async</module>
-        <module>core</module>
+        <module>producer-too-large</module>
     </modules>
 
     <properties>
@@ -21,6 +22,7 @@
         <scala.version.manor>13</scala.version.manor>
         <scala.version.patch>12</scala.version.patch>
         <scala.version>${scala.version.major}.${scala.version.manor}.${scala.version.patch}</scala.version>
+        <packageName/>
     </properties>
 
     <packaging>pom</packaging>

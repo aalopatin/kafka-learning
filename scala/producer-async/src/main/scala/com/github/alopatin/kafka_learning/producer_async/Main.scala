@@ -1,5 +1,6 @@
 package com.github.alopatin.kafka_learning.producer_async
 
+import com.github.alopatin.kafka_learning.core.ProducerCallbackPrintException
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.{DoubleSerializer, StringSerializer}
@@ -49,7 +50,7 @@ object Main {
       // we need to extend Callback class
       // and implement method onCompletion
       // and put instance of new class to method send
-      producer.send(record, new ProducerCallback())
+      producer.send(record, new ProducerCallbackPrintException())
 
       sleep(100)
     }
