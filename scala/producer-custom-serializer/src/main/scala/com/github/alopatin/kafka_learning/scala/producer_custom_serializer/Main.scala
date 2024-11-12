@@ -1,9 +1,10 @@
-package com.github.alopatin.kafka_learning.producer_async
+package com.github.alopatin.kafka_learning.scala.producer_custom_serializer
 
-import com.github.alopatin.kafka_learning.core.callbacks.ProducerCallbackPrintException
+import com.github.alopatin.kafka_learning.scala.core.model.iot.LocationMeasurement
+import com.github.alopatin.kafka_learning.scala.core.serialization.iot.LocationMeasurementSerializer
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
-import org.apache.kafka.common.serialization.{DoubleSerializer, StringSerializer}
+import org.apache.kafka.common.serialization.StringSerializer
 
 import java.lang.Thread.sleep
 import java.time.LocalDateTime
@@ -11,7 +12,7 @@ import java.util.Properties
 import scala.util.Random
 
 /**
- * Exersice: Write sync Kafka producer that produce messages and process an answer from broker synchronously.
+ * Exersice: Write Kafka producer with custom serializer
  */
 object Main {
 
@@ -27,7 +28,9 @@ object Main {
     val kafkaProperties = new Properties()
     kafkaProperties.put("bootstrap.servers", config.getString("kafka.bootstrap.servers"))
     kafkaProperties.put("key.serializer", classOf[StringSerializer].getName)
-    kafkaProperties.put("value.serializer", classOf[DoubleSerializer].getName)
+    kafkaProperties.put("value.serializer", classOf[LocationMeasurementSerializer].getName)
+
+    val locations = Array("room 1", "room 2", "room 3", "room 4", "room 5")
 
     val interval = topic match {
       case "temperature" => (15.0, 30.0)
@@ -37,20 +40,24 @@ object Main {
 
     val rand = new Random()
 
-    val producer = new KafkaProducer[String, Double](kafkaProperties)
+    val producer = new KafkaProducer[String, LocationMeasurement](kafkaProperties)
 
     for (_ <- 1 to count) {
       val key = LocalDateTime.now().toString
-      val value = (rand.between(interval._1, interval._2) * 10).round / 10.0
-      val record = new ProducerRecord(topic, key, value)
+
+      val location = locations(rand.nextInt(locations.length))
+      val measurement = (rand.between(interval._1, interval._2) * 10).round / 10.0
+      val value = LocationMeasurement(location, measurement)
+
+      val record = new ProducerRecord(s"$topic-custom", key, value)
 
       println(s"key: $key, value: $value")
 
-      // To send messages to Kafka asynchronously
-      // we need to extend Callback class
-      // and implement method onCompletion
-      // and put instance of new class to method send
-      producer.send(record, new ProducerCallbackPrintException())
+      try {
+        producer.send(record)
+      } catch {
+        case e: Throwable => e.printStackTrace()
+      }
 
       sleep(100)
     }

@@ -1,4 +1,4 @@
-package com.github.alopatin.kafka_learning.producer_too_large
+package com.github.alopatin.kafka_learning.scala.producer_too_large
 
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}

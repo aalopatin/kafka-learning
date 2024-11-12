@@ -1,6 +1,6 @@
-package com.github.alopatin.kafka_learning.core.serialization.iot
+package com.github.alopatin.kafka_learning.scala.core.serialization.iot
 
-import com.github.alopatin.kafka_learning.core.model.iot.LocationMeasurement
+import com.github.alopatin.kafka_learning.scala.core.model.iot.LocationMeasurement
 import org.apache.kafka.common.errors.SerializationException
 import org.apache.kafka.common.serialization.Serializer
 

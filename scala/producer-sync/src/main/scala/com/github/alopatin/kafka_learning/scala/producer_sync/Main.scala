@@ -1,4 +1,4 @@
-package com.github.alopatin.kafka_learning.producer_simple
+package com.github.alopatin.kafka_learning.scala.producer_sync
 
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
@@ -7,11 +7,10 @@ import org.apache.kafka.common.serialization.{DoubleSerializer, StringSerializer
 import java.lang.Thread.sleep
 import java.time.LocalDateTime
 import java.util.Properties
-import scala.math.round
 import scala.util.Random
 
 /**
- * Exersice: Write simple Kafka producer that produce messages with fire-and-forge method
+ * Exersice: Write sync Kafka producer that produce messages and process an answer from broker synchronously.
  */
 object Main {
 
@@ -47,7 +46,10 @@ object Main {
       println(s"key: $key, value: $value")
 
       try {
-        producer.send(record)
+        // To send messages to Kafka synchronously
+        // we need to call method get on Future
+        // that returns send method to us
+        producer.send(record).get()
       } catch {
         case e: Throwable => e.printStackTrace()
       }

@@ -1,6 +1,7 @@
 package com.github.alopatin.kafka_learning.core.serialization.iot
 
-import com.github.alopatin.kafka_learning.core.model.iot.LocationMeasurement
+import com.github.alopatin.kafka_learning.scala.core.model.iot.LocationMeasurement
+import com.github.alopatin.kafka_learning.scala.core.serialization.iot.LocationMeasurementSerializer
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll}
 import org.scalatest.funsuite.AnyFunSuite
 
