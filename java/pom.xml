@@ -4,35 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.alopatin.kafka-learning.scala</groupId>
-    <artifactId>scala</artifactId>
+    <groupId>com.github.alopatin.kafka_learning.java</groupId>
+    <artifactId>java</artifactId>
     <version>1.0</version>
     <modules>
         <module>resources</module>
         <module>producer-simple</module>
-        <module>producer-sync</module>
-        <module>producer-async</module>
-        <module>producer-too-large</module>
-        <module>producer-custom-serializer</module>
+        <module>producer-json</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <scala.version.major>2</scala.version.major>
-        <scala.version.manor>13</scala.version.manor>
-        <scala.version.patch>12</scala.version.patch>
-        <scala.version>${scala.version.major}.${scala.version.manor}.${scala.version.patch}</scala.version>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
     </properties>
 
     <packaging>pom</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
@@ -46,8 +34,6 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -71,19 +57,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.scala-tools</groupId>
-                <artifactId>maven-scala-plugin</artifactId>
-                <version>2.15.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.4.1</version>
@@ -98,15 +71,13 @@
                             <outputDirectory>${maven.multiModuleProjectDirectory}/target/libs</outputDirectory>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.github.alopatin.kafka_learning.scala.${packageName}.Main</mainClass>
+                                    <mainClass>com.github.alopatin.kafka_learning.java.${packageName}.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
                     </execution>
                 </executions>
-
             </plugin>
         </plugins>
     </build>
-
 </project>

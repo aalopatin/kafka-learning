@@ -1,6 +1,6 @@
 package com.github.alopatin.kafka_learning.scala.producer_async
 
-import com.github.alopatin.kafka_learning.scala.core.callbacks.ProducerCallbackPrintException
+import com.github.alopatin.kafka_learning.scala.producer_async.callbacks.ProducerCallbackPrintException
 import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.{DoubleSerializer, StringSerializer}

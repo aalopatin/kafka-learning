@@ -8,7 +8,7 @@ import java.lang.Thread.sleep
 import java.time.LocalDateTime
 import java.util.Properties
 import scala.math.round
-import scala.util.Random
+import scala.util.{Random, Using}
 
 /**
  * Exersice: Write simple Kafka producer that produce messages with fire-and-forge method
@@ -37,22 +37,23 @@ object Main {
 
     val rand = new Random()
 
-    val producer = new KafkaProducer[String, Double](kafkaProperties)
+    Using(new KafkaProducer[String, Double](kafkaProperties)) {
+      producer =>
+        for (_ <- 1 to count) {
+          val key = LocalDateTime.now().toString
+          val value = (rand.between(interval._1, interval._2) * 10).round / 10.0
+          val record = new ProducerRecord(topic, key, value)
 
-    for (_ <- 1 to count) {
-      val key = LocalDateTime.now().toString
-      val value = (rand.between(interval._1, interval._2) * 10).round / 10.0
-      val record = new ProducerRecord(topic, key, value)
+          println(s"key: $key, value: $value")
 
-      println(s"key: $key, value: $value")
+          try {
+            producer.send(record)
+          } catch {
+            case e: Throwable => e.printStackTrace()
+          }
 
-      try {
-        producer.send(record)
-      } catch {
-        case e: Throwable => e.printStackTrace()
-      }
-
-      sleep(100)
+          sleep(100)
+        }
     }
 
   }

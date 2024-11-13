@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.alopatin.kafka-learning.scala</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>resources</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

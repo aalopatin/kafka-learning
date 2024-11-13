@@ -1,4 +1,4 @@
-package com.github.alopatin.kafka_learning.scala.core.callbacks
+package com.github.alopatin.kafka_learning.scala.producer_async.callbacks
 
 import org.apache.kafka.clients.producer.{Callback, RecordMetadata}
 
