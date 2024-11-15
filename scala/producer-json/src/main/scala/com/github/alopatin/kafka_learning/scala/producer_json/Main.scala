@@ -1,6 +1,6 @@
 package com.github.alopatin.kafka_learning.scala.producer_json
 
-import com.github.alopatin.kafka_learning.scala.producer_json.model.iot.LocationMeasurementJson
+import com.github.alopatin.kafka_learning.scala.producer_json.model.iot.LocationMeasurement
 import com.typesafe.config.ConfigFactory
 import io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
@@ -28,7 +28,7 @@ object Main {
     val kafkaProperties = new Properties()
     kafkaProperties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, config.getString("kafka.bootstrap.servers"))
     kafkaProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, classOf[StringSerializer].getName)
-    kafkaProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[KafkaJsonSchemaSerializer[LocationMeasurementJson]].getName)
+    kafkaProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, classOf[KafkaJsonSchemaSerializer[LocationMeasurement]].getName)
     kafkaProperties.put("schema.registry.url", config.getString("kafka.schema.registry.url"))
 
     val locations = Array("room 1", "room 2", "room 3", "room 4", "room 5")
@@ -41,14 +41,14 @@ object Main {
 
     val rand = new Random()
 
-    val producer = new KafkaProducer[String, LocationMeasurementJson](kafkaProperties)
+    val producer = new KafkaProducer[String, LocationMeasurement](kafkaProperties)
 
     for (_ <- 1 to count) {
       val key = LocalDateTime.now().toString
 
       val location = locations(rand.nextInt(locations.length))
       val measurement = (rand.between(interval._1, interval._2) * 10).round / 10.0
-      val value = new LocationMeasurementJson(location, measurement)
+      val value = new LocationMeasurement(location, measurement)
 
       val record = new ProducerRecord(s"$topic-json", key, value)
 
