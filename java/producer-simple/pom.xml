@@ -11,12 +11,4 @@
 
     <artifactId>producer-simple</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.alopatin.kafka_learning.java</groupId>
-            <artifactId>resources</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
-
 </project>

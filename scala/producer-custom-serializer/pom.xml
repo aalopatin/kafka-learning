@@ -13,11 +13,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.alopatin.kafka-learning.scala</groupId>
-            <artifactId>resources</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.13</artifactId>
             <version>3.1.2</version>

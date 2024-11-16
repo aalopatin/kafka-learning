@@ -12,4 +12,6 @@ class LocationMeasurement(
 
   @JsonProperty("measurement")
   var measurement: Double = _measurement
+
+  override def toString = s"LocationMeasurement($location, $measurement)"
 }

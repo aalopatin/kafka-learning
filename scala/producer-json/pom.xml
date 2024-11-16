@@ -13,11 +13,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.alopatin.kafka-learning.scala</groupId>
-            <artifactId>resources</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>io.confluent</groupId>
             <artifactId>kafka-json-schema-serializer</artifactId>
             <version>7.7.1</version>
