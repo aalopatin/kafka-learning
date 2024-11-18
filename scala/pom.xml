@@ -16,6 +16,7 @@
         <module>producer-custom-serializer</module>
         <module>producer-json</module>
         <module>producer-json-case-class</module>
+        <module>producer-avro</module>
     </modules>
 
     <properties>
