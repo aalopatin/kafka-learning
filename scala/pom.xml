@@ -17,6 +17,7 @@
         <module>producer-json</module>
         <module>producer-json-case-class</module>
         <module>producer-avro</module>
+        <module>producer-protobuf</module>
     </modules>
 
     <properties>

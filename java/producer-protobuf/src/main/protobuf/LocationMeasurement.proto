@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.github.alopatin.kafka_learning.java.producer_protobuf.protobuf;
+
+option java_multiple_files = true;
+
+message LocationMeasurement {
+  string location = 1;
+  double measurement = 2;
+}

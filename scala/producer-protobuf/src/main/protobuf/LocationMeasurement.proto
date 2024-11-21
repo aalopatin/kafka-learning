@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+/*
+Because of early we generated class in Java we should use package java as well.
+
+But more correct is to create common dependency install it to repository: mvn install and use it in both java and scala projects.
+But for learning purposes to generate source code prom .proto files in Scala this also is done here.
+
+
+Text of error that is returned by SchemaRegistry client:
+
+org.apache.kafka.common.errors.SerializationException: Error registering Protobuf schema: syntax = "proto3";
+package com.github.alopatin.kafka_learning.scala.producer_protobuf.protobuf;
+
+option java_multiple_files = true;
+
+message LocationMeasurement {
+  string location = 1;
+  double measurement = 2;
+}
+
+...
+
+Caused by: io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException: Schema being registered is incompatible with an earlier schema for subject "temperature-protobuf-value", details: [{errorType:"PACKAGE_CHANGED"
+, description:"The package at '#/' in the new schema does not match the package in the old schema"}, {oldSchemaVersion: 1}, {oldSchema: 'syntax = "proto3";
+package com.github.alopatin.kafka_learning.java.producer_protobuf.protobuf;
+
+option java_multiple_files = true;
+
+message LocationMeasurement {
+  string location = 1;
+  double measurement = 2;
+}
+'}, {validateFields: 'false', compatibility: 'BACKWARD'}];
+
+*/
+
+package com.github.alopatin.kafka_learning.java.producer_protobuf.protobuf;
+
+option java_multiple_files = true;
+
+message LocationMeasurement {
+  string location = 1;
+  double measurement = 2;
+}

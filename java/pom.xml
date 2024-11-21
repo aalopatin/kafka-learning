@@ -11,6 +11,7 @@
         <module>resources</module>
         <module>producer-simple</module>
         <module>producer-json</module>
+        <module>producer-protobuf</module>
     </modules>
 
     <properties>
