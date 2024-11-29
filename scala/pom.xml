@@ -20,6 +20,7 @@
         <module>producer-protobuf</module>
         <module>producer-custom-partitioner</module>
         <module>producer-headers</module>
+        <module>producer-interceptor</module>
     </modules>
 
     <properties>
