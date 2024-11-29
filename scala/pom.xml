@@ -19,6 +19,7 @@
         <module>producer-avro</module>
         <module>producer-protobuf</module>
         <module>producer-custom-partitioner</module>
+        <module>producer-headers</module>
     </modules>
 
     <properties>
