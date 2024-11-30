@@ -25,6 +25,7 @@
         <module>consumer-simple</module>
         <module>consumer-custom-deserializer</module>
         <module>consumer-json</module>
+        <module>consumer-avro</module>
     </modules>
 
     <properties>
