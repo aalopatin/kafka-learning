@@ -21,6 +21,7 @@
         <module>producer-custom-partitioner</module>
         <module>producer-headers</module>
         <module>producer-interceptor</module>
+        <module>producer-quota</module>
     </modules>
 
     <properties>

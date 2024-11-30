@@ -13,7 +13,7 @@ import java.util.Properties
 import scala.util.Random
 
 /**
- * Exersice: Write Kafka producer with json schema serializer
+ * Exersice: Write Kafka producer with headers
  */
 object Main {
 
