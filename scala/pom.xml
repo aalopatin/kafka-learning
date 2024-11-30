@@ -22,6 +22,8 @@
         <module>producer-headers</module>
         <module>producer-interceptor</module>
         <module>producer-quota</module>
+        <module>consumer-simple</module>
+        <module>consumer-custom-deserializer</module>
     </modules>
 
     <properties>
