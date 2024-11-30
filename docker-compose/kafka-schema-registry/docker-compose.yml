@@ -19,18 +19,38 @@ services:
       KAFKA_NUM_PARTITIONS: 5
       KAFKA_LOG_DIRS: /tmp/kafka/data
       KAFKA_METADATA_LOG_DIR: /tmp/kafka/meta
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9092"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - ./data:/tmp/kafka/data
-      - ./meta:/tmp/kafka/meta
-      
+      - ./meta:/tmp/kafka/meta  
   schema-registry:
     image: confluentinc/cp-schema-registry:latest
     container_name: schema-registry
     depends_on:
-      - broker
+      broker:
+        condition: service_healthy
     environment:
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://broker:19092
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
     ports:
       - 8081:8081
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8088:8080"
+    depends_on:
+      broker:
+        condition: service_started
+      schema-registry:
+        condition: service_started
+    environment:
+      KAFKA_CLUSTERS_0_NAME: kafka
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker:19092
+      KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://schema-registry:8081
+      DYNAMIC_CONFIG_ENABLED: 'true'
