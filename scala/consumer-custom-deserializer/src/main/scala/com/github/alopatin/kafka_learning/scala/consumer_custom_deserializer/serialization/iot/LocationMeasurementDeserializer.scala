@@ -2,7 +2,7 @@ package com.github.alopatin.kafka_learning.scala.consumer_custom_deserializer.se
 
 import com.github.alopatin.kafka_learning.scala.consumer_custom_deserializer.model.iot.LocationMeasurement
 import org.apache.kafka.common.errors.SerializationException
-import org.apache.kafka.common.serialization.{Deserializer, Serializer}
+import org.apache.kafka.common.serialization.Deserializer
 
 import java.nio.ByteBuffer
 
