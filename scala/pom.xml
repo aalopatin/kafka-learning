@@ -30,6 +30,7 @@
         <module>consumer-start-assign</module>
         <module>consumer-max-bytes</module>
         <module>consumer-start-subscribe</module>
+        <module>consumer-poll-records</module>
     </modules>
 
     <properties>
