@@ -27,6 +27,9 @@
         <module>consumer-json</module>
         <module>consumer-avro</module>
         <module>consumer-protobuf</module>
+        <module>consumer-start-assign</module>
+        <module>consumer-max-bytes</module>
+        <module>consumer-start-subscribe</module>
     </modules>
 
     <properties>
