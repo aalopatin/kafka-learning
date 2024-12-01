@@ -31,6 +31,7 @@
         <module>consumer-max-bytes</module>
         <module>consumer-start-subscribe</module>
         <module>consumer-poll-records</module>
+        <module>consumer-standalone</module>
     </modules>
 
     <properties>
