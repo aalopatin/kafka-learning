@@ -33,6 +33,7 @@
         <module>consumer-poll-records</module>
         <module>consumer-standalone</module>
         <module>consumer-sync</module>
+        <module>consumer-async</module>
     </modules>
 
     <properties>

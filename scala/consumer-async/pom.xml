@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>consumer-custom-assignor</artifactId>
+    <artifactId>consumer-async</artifactId>
 
     <dependencies>
         <dependency>
