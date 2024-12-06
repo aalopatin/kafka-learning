@@ -34,7 +34,7 @@ object Main {
         for (_ <- 1 to count) {
           val key = LocalDateTime.now().toString
           //Generate value of 100 bytes in size
-          val value = new String(rand.alphanumeric.take(200).toArray)
+          val value = new String(rand.alphanumeric.take(100).toArray)
           val record = new ProducerRecord("producer-quota", key, value)
 
           println(s"key: $key, value: $value")

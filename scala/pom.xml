@@ -34,6 +34,7 @@
         <module>consumer-standalone</module>
         <module>consumer-sync</module>
         <module>consumer-async</module>
+        <module>consumer-async-retry</module>
     </modules>
 
     <properties>
