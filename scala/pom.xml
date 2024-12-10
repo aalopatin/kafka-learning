@@ -36,6 +36,8 @@
         <module>consumer-async</module>
         <module>consumer-async-retry</module>
         <module>consumer-async-sync</module>
+        <module>consumer-specific-offset</module>
+        <module>consumer-rebalance-listener</module>
     </modules>
 
     <properties>
